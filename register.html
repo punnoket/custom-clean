@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CleanLean</title>
+    <link rel="shortcut icon" href="img/logo.svg" />
+    <link rel="stylesheet" type="text/css" href="./css/register.css">
+    <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+        <div class="main_header">
+                <div class="logo_header">
+                    <img src="">
+                </div>
+                <div class="menu_header">
+                    <div  id="home" class="li_menu">
+                        <span class="set_center">HOME</span>
+                    </div>
+                    <div id="customize" class="li_menu">
+                        <span class="set_center">CUSTOMIZE MENU</span>
+                    </div>
+                    <div id="speciel" class="li_menu">
+                        <span class="set_center">SPECIEL MENU</span>
+                    </div>
+                    <div id="login" class="li_menu_right">
+                        <span class="set_center">LOGIN</span>
+                    </div>
+                    <div id="register" class="li_menu_right">
+                        <span class="set_center">REGISTER</span>
+                    </div>
+                   
+                </div>
+            </div>
+            <form action="./api/addUser.php" onsubmit="return validateRegister()" method="POST">
+                <div class="content_register">
+                    <div class="register_box">
+                        <div class="head_name">REGISTER</div>
+                        <div class="all_box">
+                            <div class="head_input">Username : </div>
+                            <div class="input_data_box">
+                                <input id="username" class="input_data" name="username" type="text" placeholder="ตัวอย่าง">
+                            </div>
+                        </div>
+                        <div class="all_box">
+                            <div class="each_all_left">
+                                <div class="head_input">Password : </div>
+                                <div class="input_data_box">
+                                    <input id="password" class="input_data" name="password" type="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="each_all_right">
+                                <div class="head_input">ConfirmPassword : </div>
+                                <div class="input_data_box">
+                                    <input id="rePassword" class="input_data" type="password" placeholder="ConfirmPassword">
+                                </div>
+                            </div>
+                            <div class="clear_both"></div>
+                        </div>
+                        <div class="all_box">
+                            <div class="each_all_left">
+                                <div class="head_input">Firstname : </div>
+                                <div class="input_data_box">
+                                    <input id="firstName" class="input_data" name="firstName" type="text" placeholder="Enter your firstname">
+                                </div>
+                            </div>
+                            <div class="each_all_right">
+                                <div class="head_input">Lastname : </div>
+                                <div class="input_data_box">
+                                    <input id="lastName" class="input_data" name="lastName" type="text" placeholder="Enter your lastname">
+                                </div>
+                            </div>
+                            <div class="clear_both"></div>
+                        </div>
+        
+                        <div class="all_box">
+                            <div class="each_all_left">
+                                <div class="head_input">E-mail : </div>
+                                <div class="input_data_box">
+                                    <input id="email" class="input_data" name="email" type="email" placeholder="example@hotmail.com">
+                                </div>
+                            </div>
+                            <div class="each_all_right">
+                                <div class="head_input">Tel : </div>
+                                <div class="input_data_box">
+                                    <input id="phoneNumber" class="input_data" name="phoneNumber" type="number" placeholder="0000000000">
+                                </div>
+                            </div>
+                            <div class="clear_both"></div>
+                        </div>
+                        <div class="all_box">
+                            <div class="head_input">Address : </div>
+                            <div class="input_data_box">
+                                <input id="address" class="input_data" name="address" type="text" placeholder="140 U-thong">
+                            </div>
+                        </div>
+                        <div class="edit_btn">
+                            <input type="submit" value ="Register" class="set_center">
+                        </div>
+                    </div>
+                </div>
+            </form>
+</body>
+
+</html>
