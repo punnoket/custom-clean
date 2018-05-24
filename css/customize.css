@@ -36,6 +36,7 @@ padding-right: 200px;
      float: left;
     box-sizing: border-box;
     cursor: pointer;
+    /* box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.5); */
 }
 .margin_right{
     margin-right: 48px;
@@ -125,4 +126,20 @@ padding-right: 200px;
     color: white;
     font-weight: bold;
     font-size: 20px;
+}
+
+.finish_btn{
+    width: 240px;
+    height: 40px;
+    border-radius: 24px;
+    position: relative;
+    box-sizing: border-box;  
+    font-size: 22px;
+    margin: 100px auto;
+    /* background: linear-gradient(-90deg,#1BA7BD,#4AD99D); */
+    color: black;
+    border: 1px solid black;
+    /* left: calc(50% - 120px); */
+    /* bottom: 60px; */
+    cursor: pointer;
 }

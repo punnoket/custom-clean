@@ -3,11 +3,13 @@
     require '../config/dbConfig.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $_POST = json_decode(file_get_contents('php://input'), true);
         $username = $_POST["username"];   
         $password = $_POST["password"];
         
         $sql = "SELECT * FROM user WHERE username = '$username'";
-        $result = $con->query($sql);
+        $result = $con->query($sql);   
+        $response = new \stdClass();
 
         if($result->num_rows==1){
             $row        = $result->fetch_assoc();
@@ -23,6 +25,8 @@
 
                 $response->message = "ok";
                 $response->status = 200;
+                $response->username = $_SESSION["username"];
+
                 echo json_encode($response);
             }else{
                 $response->message = "Password not correct";

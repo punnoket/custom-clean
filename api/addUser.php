@@ -2,7 +2,6 @@
 
 <?php
     require '../config/dbConfig.php';
-    session_start();
 
     $firstName = $_POST["firstName"];
     $latstName = $_POST["lastName"];
@@ -19,6 +18,7 @@
     $result = $con->query($sql);
 
     if($result !== FALSE){
+        session_start();
         $_SESSION["firstName"] = $row["first_name"];
         $_SESSION["lastName"] = $row["last_name"];
         $_SESSION["email"] = $row["email"];

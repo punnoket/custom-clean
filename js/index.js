@@ -21,3 +21,14 @@ $("#home").click(function () {
  $("#register").click(function () {
     window.location = 'register.html'
  });
+
+ $("#login").click(function () {
+    $(".relative").show();
+ });
+
+
+ $('.each_rice').click(function() {
+    $(this).css({
+        'box-shadow': '0px 12px 32px rgba(0, 0, 0, 0.5)'
+    });
+});

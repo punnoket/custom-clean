@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>CleanLean</title>
     <link rel="shortcut icon" href="img/logo.svg" />
+    <link rel="stylesheet" type="text/css" href="css/popuplogin.css">
     <link rel="stylesheet" type="text/css" href="css/popup.css">
     <link rel="stylesheet" type="text/css" href="css/customize.css">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
@@ -13,28 +14,44 @@
     <script src="js/jquery.easing.1.3.min.js"></script>
 </head>
 
-<body>
-        <div id="popup"  class="option" >
-                <div class="content_box">
-                    <div   class="content_option">
-                        <img class="img_cancel" src="img/cancel.svg">
-                            <div class="img_popup">
-                                <img src="">
-                            </div>
-                            <div class="detail_popup">
-                                    <div class="pop_name">NAME</div>
-                                    <div class="long_name">NAME</div>
-                            </div>
-                       
-                    </div>
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
+    <div class="" class="relative">
+        <div ng-if="login == false" class="popup_box">
+            <div class="relative">
+                <img id="popup_pic" src="img/pop.svg">
+                <div class="pop_mainhead">เข้าสู่ระบบ</div>
+                <div class="pop_head2">Username</div>
+                <input class="login_pop" id="email" type="text" ng-model="username">
+                <div class="pop_head2">Password</div>
+                <input class="login_pop" id="pass" type="password" ng-model="password">
+                <div id="login_btn" class="login_btn">
+                    <span ng-click="sendLogin(username, password)" class="set_center">LOGIN</span>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="popup" class="option">
+        <div class="content_box">
+            <div class="content_option">
+                <img class="img_cancel" src="img/cancel.svg">
+                <div class="img_popup">
+                    <img src="">
+                </div>
+                <div class="detail_popup">
+                    <div class="pop_name">NAME</div>
+                    <div class="long_name">NAME</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="main_header">
         <div class="logo_header">
             <img src="">
         </div>
         <div class="menu_header">
-            <div  id="home" class="li_menu">
+            <div id="home" class="li_menu">
                 <span class="set_center">HOME</span>
             </div>
             <div id="customize" class="li_menu">
@@ -43,13 +60,18 @@
             <div id="speciel" class="li_menu">
                 <span class="set_center">SPECIEL MENU</span>
             </div>
-            <div id="login" class="li_menu_right">
+            <div id="login" ng-if="login == false" class="li_menu_right">
                 <span class="set_center">LOGIN</span>
             </div>
-            <div id="register" class="li_menu_right">
+            <div id="register" ng-if="login == false" class="li_menu_right">
                 <span class="set_center">REGISTER</span>
             </div>
-           
+            <div ng-if="login == true" class="li_menu_right">
+                <span ng-click="logout()" class="set_center">LOGOUT</span>
+            </div>
+            <div ng-if="login == true" class="li_menu_right">
+                <span class="set_center">[[username]]</span>
+            </div>
         </div>
     </div>
     <div class="content_customize">
@@ -57,132 +79,130 @@
             <span class="set_center">OK</span>
         </div>
         <div class="ok_btn2">
-                <span class="set_center">AGAIN</span>
-            </div>
-        <div class="head_custom"><span class="set_center_left">1. SPECIEL MENU</span></div>
-        <div class="rice_content">
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-            <div class="each_rice ">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
+            <span class="set_center">AGAIN</span>
         </div>
-      
-        <div class="rice_content">
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-            <div class="each_rice ">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
+        <div class="head_custom">
+            <span class="set_center_left">1. SPECIEL MENU</span>
         </div>
         <div class="rice_content">
             <div class="each_rice margin_right">
                 <div class="img_content"></div>
                 <div class="name">SPECIEL A</div>
                 <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-            <div class="each_rice ">
-                <div class="img_content"></div>
-                <div class="name">SPECIEL A</div>
-                <div class="price">120 B</div>
-               <div class="select_box">
-                <select class="select_amount" >
-                    <option value="">choose 1</option>
-                </select>
-               </div>
-               
-               
-            </div>
-        </div>
-      
-       
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
 
 
-       
-       
+            </div>
+            <div class="each_rice margin_right">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="each_rice ">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="rice_content">
+            <div class="each_rice margin_right">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="each_rice margin_right">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="each_rice ">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="rice_content">
+            <div class="each_rice margin_right">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="each_rice margin_right">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="each_rice ">
+                <div class="img_content"></div>
+                <div class="name">SPECIEL A</div>
+                <div class="price">120 B</div>
+                <div class="select_box">
+                    <select class="select_amount">
+                        <option value="">choose 1</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
     </div>
     <script src="js/speciel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/userManager.js"></script>
 </body>
 
 </html>
