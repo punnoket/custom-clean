@@ -62,51 +62,65 @@
         <div class="head_custom">
             <span class="set_center_left">1. CHOOSE RICE</span>
         </div>
-        <div class="rice_content">
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">RICE A</div>
-                <div class="price">120 B</div>
+        <div ng-repeat="i in range(listRice.length, 3)" class="rice_content">
+                <div class="each_rice margin_right">
+                <div class="img_content">
+                    <img class="this_img"  ng-src="img/[[listRice[i].image]]">
+                </div>
+                <div class="name">[[listRice[i].name]]</div>
+                <div class="price">[[listRice[i].price]] B</div>
             </div>
             <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">RICE B</div>
-                <div class="price">120 B</div>
+                    <div class="img_content">
+                            <img class="this_img"  ng-src="img/[[listRice[i+1].image]]">
+                        </div>
+                        <div class="name">[[listRice[i+1].name]]</div>
+                        <div class="price">[[listRice[i+1].price]] B</div>
             </div>
             <div class="each_rice">
-                <div class="img_content"></div>
-                <div class="name">RICE C</div>
-                <div class="price">120 B</div>
+                    <div class="img_content">
+                            <img class="this_img"  ng-src="img/[[listRice[i+2].image]]">
+                        </div>
+                        <div class="name">[[listRice[i+2].name]]</div>
+                        <div class="price">[[listRice[i+2].price]] B</div>
             </div>
         </div>
         <div class="head_custom">
             <span class="set_center_left">2. CHOOSE VEGETABLE</span>
         </div>
-        <div class="rice_content">
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">VEGETABLE A</div>
-                <div class="price">120 B</div>
+        <div ng-repeat="i in range(listVegetable.length, 3)" class="rice_content">
+                <div class="each_rice margin_right">
+                        <div class="img_content">
+                                <img class="this_img"  ng-src="img/[[listVegetable[i].image]]">
+                            </div>
+                            <div class="name">[[listVegetable[i].name]]</div>
+                            <div class="price">[[listVegetable[i].price]] B</div>
             </div>
             <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">VEGETABLE B</div>
-                <div class="price">120 B</div>
+                    <div class="img_content">
+                            <img class="this_img"  ng-src="img/[[listVegetable[i+1].image]]">
+                        </div>
+                        <div class="name">[[listVegetable[i+1].name]]</div>
+                        <div class="price">[[listVegetable[i+1].price]] B</div>
             </div>
             <div class="each_rice ">
-                <div class="img_content"></div>
-                <div class="name">VEGETABLE C</div>
-                <div class="price">120 B</div>
+                    <div class="img_content">
+                            <img class="this_img"  ng-src="img/[[listVegetable[i+2].image]]">
+                        </div>
+                        <div class="name">[[listVegetable[i+2].name]]</div>
+                        <div class="price">[[listVegetable[i+2].price]] B</div>
             </div>
         </div>
         <div class="head_custom">
             <span class="set_center_left">3. CHOOSE MEAT</span>
         </div>
-        <div class="rice_content">
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">MEAT A</div>
-                <div class="price">120 B</div>
+        <div ng-repeat="i in range(listMeet.length, 3)" class="rice_content">
+                <div class="each_rice margin_right">
+                        <div class="img_content">
+                                <img class="this_img"  ng-src="img/[[listMeet[i].image]]">
+                            </div>
+                            <div class="name">[[listMeet[i].name]]</div>
+                            <div class="price">[[listMeet[i].price]] B</div>
                 <div class="name">CHOOSE COOK</div>
                 <div class="select_box">
                     <select class="select_amount">
@@ -121,9 +135,11 @@
 
             </div>
             <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">MEAT B</div>
-                <div class="price">120 B</div>
+                    <div class="img_content">
+                            <img class="this_img"  ng-src="img/[[listMeet[i+1].image]]">
+                        </div>
+                        <div class="name">[[listMeet[i+1].name]]</div>
+                        <div class="price">[[listMeet[i+1].price]] B</div>
                 <div class="name">CHOOSE COOK</div>
                 <div class="select_box">
                     <select class="select_amount">
@@ -138,62 +154,11 @@
 
             </div>
             <div class="each_rice">
-                <div class="img_content"></div>
-                <div class="name">MEAT C</div>
-                <div class="price">120 B</div>
-                <div class="name">CHOOSE COOK</div>
-                <div class="select_box">
-                    <select class="select_amount">
-                        <option value="">Boil</option>
-                        <option value="">Steam</option>
-                        <option value="">Fried</option>
-                        <option value="">Pepper</option>
-                        <option value="">Curry</option>
-                        <option value="">Sear</option>
-                    </select>
-                </div>
-
-            </div>
-        </div>
-        <div class="rice_content">
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">FISH A</div>
-                <div class="price">120 B</div>
-                <div class="name">CHOOSE COOK</div>
-                <div class="select_box">
-                    <select class="select_amount">
-                        <option value="">Boil</option>
-                        <option value="">Steam</option>
-                        <option value="">Fried</option>
-                        <option value="">Pepper</option>
-                        <option value="">Curry</option>
-                        <option value="">Sear</option>
-                    </select>
-                </div>
-
-            </div>
-            <div class="each_rice margin_right">
-                <div class="img_content"></div>
-                <div class="name">FISH B</div>
-                <div class="price">120 B</div>
-                <div class="name">CHOOSE COOK</div>
-                <div class="select_box">
-                    <select class="select_amount">
-                        <option value="">Boil</option>
-                        <option value="">Steam</option>
-                        <option value="">Fried</option>
-                        <option value="">Pepper</option>
-                        <option value="">Curry</option>
-                        <option value="">Sear</option>
-                    </select>
-                </div>
-
-            </div>
-            <div class="each_rice">
-                <div class="img_content"></div>
-                <div class="name">FISH C</div>
-                <div class="price">120 B</div>
+                    <div class="img_content">
+                            <img class="this_img"  ng-src="img/[[listMeet[i+2].image]]">
+                        </div>
+                        <div class="name">[[listMeet[i+2].name]]</div>
+                        <div class="price">[[listMeet[i+2].price]] B</div>
                 <div class="name">CHOOSE COOK</div>
                 <div class="select_box">
                     <select class="select_amount">

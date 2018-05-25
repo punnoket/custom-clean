@@ -124,12 +124,12 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
     $scope.getVegatable = function () {
         $http({
                 method: 'GET',
-                url: "api/vagetable.php"
+                url: "api/vegetable.php"
             })
             .then(function (response) {
                 //First function handles success 
                 console.log(response.data)
-                $scope.listVegatable = response.data
+                $scope.listVegetable = response.data
             }, function (response) {
                 //Second function handles error 
                 console.log(response)
