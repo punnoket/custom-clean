@@ -5,6 +5,7 @@
    z-index: -2;
     box-sizing: border-box;
     position: fixed;
+    background-color: red;
 }
 .main_content{
     width: 100%;
