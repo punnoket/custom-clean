@@ -120,7 +120,7 @@
     box-sizing: border-box;
     border: none;
     margin-bottom: 12px;
-    background-color: white;
+    /* background-color: white; */
     text-align: center;
     border-bottom: 1px solid black;
 }

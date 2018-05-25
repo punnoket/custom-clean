@@ -169,7 +169,7 @@ header span.spacer:after {
     height: 33px;
     position: relative;
     box-sizing: border-box;
-    bottom: 0px;
+   padding-left: 30%;
 }
 .control {
 	font-size: 17px;
