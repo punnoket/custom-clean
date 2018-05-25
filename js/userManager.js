@@ -17,15 +17,11 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 url: "api/isLogin.php"
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
                 $scope.login = response.data.isLogin
                 if ($scope.login) {
                     $scope.username = response.data.username
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
@@ -40,14 +36,12 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 data: JSON.stringify(data)
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
                 if (response.data.status == 200) {
                     $window.location.href = "./index.html";
+                } else {
+                    alert(response.data.message)
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
@@ -57,15 +51,10 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 url: "api/logout.php"
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
-
                 if (response.data.status == 200) {
                     $window.location.href = "./index.html";
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 

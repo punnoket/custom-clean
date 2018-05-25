@@ -71,7 +71,7 @@
                 <div class="price">[[listRice[i].price]] B</div>
                 <div class="field_radio">
                     <label class="control control--radio">choose this
-                        <input id="congen_yes" type="radio" name="rice" value="choose">
+                        <input id="congen_yes" type="radio" name="riceRadio" value="choose" ng-click="setRiceId([[listRice[i].id]], [[listRice[i].price]])">
                         <div class="control__indicator"></div>
                     </label>
                 </div>
@@ -83,11 +83,11 @@
                 <div class="name">[[listRice[i+1].name]]</div>
                 <div class="price">[[listRice[i+1].price]] B</div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="rice" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="riceRadio" value="choose" ng-click="setRiceId([[listRice[i+1].id]], [[listRice[i+1].price]])">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
             <div class="each_rice">
                 <div class="img_content">
@@ -96,11 +96,11 @@
                 <div class="name">[[listRice[i+2].name]]</div>
                 <div class="price">[[listRice[i+2].price]] B</div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="rice" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="riceRadio" value="choose" ng-click="setRiceId([[listRice[i+2].id]], [[listRice[i+2].price]])">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="head_custom">
@@ -114,11 +114,11 @@
                 <div class="name">[[listVegetable[i].name]]</div>
                 <div class="price">[[listVegetable[i].price]] B</div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="VEGETABLE" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="vegetableRadio" value="choose" ng-click="setVegetableId([[listVegetable[i].id]], [[listVegetable[i].price]])">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
             <div class="each_rice margin_right">
                 <div class="img_content">
@@ -127,11 +127,11 @@
                 <div class="name">[[listVegetable[i+1].name]]</div>
                 <div class="price">[[listVegetable[i+1].price]] B</div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="VEGETABLE" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="vegetableRadio" value="choose" ng-click="setVegetableId([[listVegetable[i+1].id]],[[listVegetable[i+1].price]])">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
             <div class="each_rice ">
                 <div class="img_content">
@@ -140,11 +140,11 @@
                 <div class="name">[[listVegetable[i+2].name]]</div>
                 <div class="price">[[listVegetable[i+2].price]] B</div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="VEGETABLE" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="vegetableRadio" value="choose" ng-click="setVegetableId([[listVegetable[i+2].id]],[[listVegetable[i+2].price]])">)">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="head_custom">
@@ -159,21 +159,21 @@
                 <div class="price">[[listMeet[i].price]] B</div>
                 <div class="name">CHOOSE COOK</div>
                 <div class="select_box">
-                    <select class="select_amount">
-                        <option value="">Boil</option>
-                        <option value="">Steam</option>
-                        <option value="">Fried</option>
-                        <option value="">Pepper</option>
-                        <option value="">Curry</option>
-                        <option value="">Sear</option>
+                    <select class="select_amount" ng-model="cook1" ng-change="setCook(cook1)">
+                        <option value="Boil">Boil</option>
+                        <option value="Steam">Steam</option>
+                        <option value="Fried">Fried</option>
+                        <option value="Pepper">Pepper</option>
+                        <option value="Curry">Curry</option>
+                        <option value="Sear">Sear</option>
                     </select>
                 </div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="meat" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="meetRadio" value="choose" ng-click="setMeetId([[listMeet[i].id]], [[listMeet[i].price]])">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
 
             </div>
             <div class="each_rice margin_right">
@@ -184,21 +184,21 @@
                 <div class="price">[[listMeet[i+1].price]] B</div>
                 <div class="name">CHOOSE COOK</div>
                 <div class="select_box">
-                    <select class="select_amount">
-                        <option value="">Boil</option>
-                        <option value="">Steam</option>
-                        <option value="">Fried</option>
-                        <option value="">Pepper</option>
-                        <option value="">Curry</option>
-                        <option value="">Sear</option>
+                    <select class="select_amount" ng-model="cook2" ng-change="setCook(cook2)">
+                        <option value="Boil">Boil</option>
+                        <option value="Steam">Steam</option>
+                        <option value="Fried">Fried</option>
+                        <option value="Pepper">Pepper</option>
+                        <option value="Curry">Curry</option>
+                        <option value="Sear">Sear</option>
                     </select>
                 </div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="meat" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="meetRadio" value="choose" ng-click="setMeetId([[listMeet[i+1].id]], [[listMeet[i+1].price]])">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
             <div class="each_rice">
                 <div class="img_content">
@@ -208,25 +208,25 @@
                 <div class="price">[[listMeet[i+2].price]] B</div>
                 <div class="name">CHOOSE COOK</div>
                 <div class="select_box">
-                    <select class="select_amount">
-                        <option value="">Boil</option>
-                        <option value="">Steam</option>
-                        <option value="">Fried</option>
-                        <option value="">Pepper</option>
-                        <option value="">Curry</option>
-                        <option value="">Sear</option>
+                    <select class="select_amount" ng-model="cook3" ng-change="setCook(cook3)">
+                        <option value="Boil">Boil</option>
+                        <option value="Steam">Steam</option>
+                        <option value="Fried">Fried</option>
+                        <option value="Pepper">Pepper</option>
+                        <option value="Curry">Curry</option>
+                        <option value="Sear">Sear</option>
                     </select>
                 </div>
                 <div class="field_radio">
-                        <label class="control control--radio">choose this
-                            <input id="congen_yes" type="radio" name="meat" value="choose">
-                            <div class="control__indicator"></div>
-                        </label>
-                    </div>
+                    <label class="control control--radio">choose this
+                        <input id="congen_yes" type="radio" name="meetRadio" value="choose" ng-click="setMeetId([[listMeet[i+2].id]] ,[[listMeet[i+2].price]])">)">
+                        <div class="control__indicator"></div>
+                    </label>
+                </div>
             </div>
         </div>
 
-        <div class="finish_btn">
+        <div ng-click="addCustom()" class="finish_btn">
             <span class="set_center">FINISH</span>
         </div>
     </div>

@@ -17,15 +17,11 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 url: "api/isLogin.php"
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
                 $scope.login = response.data.isLogin
                 if ($scope.login) {
                     $scope.username = response.data.username
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
@@ -40,14 +36,12 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 data: JSON.stringify(data)
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
                 if (response.data.status == 200) {
                     $window.location.href = "./index.html";
+                } else {
+                    alert(response.data.message)
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
@@ -57,15 +51,10 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 url: "api/logout.php"
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
-
                 if (response.data.status == 200) {
                     $window.location.href = "./index.html";
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
@@ -76,15 +65,11 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 url: "api/isLogin.php"
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
                 $scope.login = response.data.isLogin
                 if ($scope.login) {
                     $scope.username = response.data.username
                 }
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
@@ -94,16 +79,41 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 url: "api/menu.php"
             })
             .then(function (response) {
-                //First function handles success 
-                console.log(response.data)
                 $scope.listMenu = response.data
             }, function (response) {
-                //Second function handles error 
-                console.log(response)
             });
     }
 
-    $scope.range = function(max, step) {
+    $scope.addToCart = function (menuId, quantity, price) {
+        if (typeof quantity != 'undefined') {
+
+        var totalPrice = price * quantity
+        console.log(typeof (menuId[0]));
+        var id = menuId[0]
+        var data = {
+            "menuId": id[0],
+            "totalPrice": totalPrice,
+            "quantity": quantity
+        }
+        $http({
+                method: 'POST',
+                url: "api/addMenu.php",
+                data: JSON.stringify(data)
+            })
+            .then(function (response) {
+                if (response.data.status == 200) {
+                    alert("Add to cart Success : DD")
+                } else {
+                    alert(response.data.message)
+                }
+            }, function (response) {
+            });
+        } else {
+            alert("please input quantity")
+        }
+    }
+
+    $scope.range = function (max, step) {
         step = step || 1;
         var input = [];
         for (var i = 0; i < max; i += step) {

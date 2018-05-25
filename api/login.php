@@ -22,6 +22,7 @@
                 $_SESSION["username"] = $row["username"];
                 $_SESSION["phoneNumber"] = $row["phone_number"];
                 $_SESSION["address"] = $row["address"];
+                $_SESSION["id"] = $row["id"];
 
                 $response->message = "ok";
                 $response->status = 200;
