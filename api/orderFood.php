@@ -13,32 +13,56 @@
         header('Content-Type: application/json');
         $menuIdArray = array();
         $customIdArray = array();
+
+        $customQuantity = array();
+        $menuQuantity = array();
+
         $totalPrice = 0;
 
         while($r = mysqli_fetch_assoc($result)) {
             $menuIdArray[] = $r["menu_id"];
             $customIdArray[] = $r["custom_id"];
             $totalPrice += $r["total_price"];
+
+            if($r["menu_id"] !=0) {
+                $menuQuantity[] = $r["quantity"];
+            }
+
+            if($r["custom_id"] !=0) {
+                $customQuantity[] = $r["quantity"];
+            }
         }   
 
         $menuResult = array();
         $customResult = array();
 
+        $responseMenu = new \stdClass();
+        $indexMenu = 0;
         foreach ($menuIdArray as &$menuId) {
             if($menuId !== "0") {
                 $sql = "SELECT * FROM menu WHERE id = '$menuId'";
                 $resultMenu = $con->query($sql);
+
+                
                 while($menu = mysqli_fetch_assoc($resultMenu)) {
-                    $menuResult[] = $menu;
+                    $menuResponse->name = $menu["name"];
+                    $menuResponse->image = $menu["image"];
+                    $menuResponse->price = $menu["price"];
                 }
+                $responseMenu->menu = $menuResponse;
+                $responseMenu->quantity = $menuQuantity[$indexMenu];
+                $menuResult[] = $responseMenu;
+                $indexMenu++;
             }
         }
 
+        $index = 0;
         foreach ($customIdArray as &$customId) {
             if($customId !== "0") {
                 $customResponse = new \stdClass();
                 $sql = "SELECT * FROM custom_clean WHERE id = '$customId'";
                 $resultCustom = $con->query($sql);
+
                 while($custom = mysqli_fetch_assoc($resultCustom)) {
                     $riceResponse = new \stdClass();
                     $vegetableResponse = new \stdClass();
@@ -48,6 +72,7 @@
                     $riceId = $custom["rice_id"];
                     $sql = "SELECT * FROM rice WHERE id = '$riceId'";
                     $resultRice = $con->query($sql);
+
                     while($rice = mysqli_fetch_assoc($resultRice)) {
                         $riceResponse->name = $rice["name"];
                         $riceResponse->image = $rice["image"];
@@ -79,7 +104,10 @@
                     $customResponse->meet = $meetResponse;
                     $customResponse->cook = $custom["cook"];
                     $customResponse->price = $totalCustom;
+                    $customResponse->customQuantity = $customQuantity[$index];
+
                     $totalCustom = 0;
+                    $index++;
                     $customResult[] = $customResponse;
                 }
             }
