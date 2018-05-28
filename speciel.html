@@ -15,7 +15,7 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
-    <div class="" class="relative">
+    <div class="relative_pop">
         <div ng-if="login == false" class="popup_box">
             <div class="relative">
                 <img id="popup_pic" src="img/pop.svg">
@@ -24,8 +24,8 @@
                 <input class="login_pop" id="email" type="text" ng-model="username">
                 <div class="pop_head2">Password</div>
                 <input class="login_pop" id="pass" type="password" ng-model="password">
-                <div id="login_btn" class="login_btn">
-                    <span ng-click="sendLogin(username, password)" class="set_center">LOGIN</span>
+                <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
+                    <span class="set_center">LOGIN</span>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
         <div ng-repeat="i in range(listMenu.length, 3)" class="rice_content">
             <div class="each_rice margin_right">
                 <div class="img_content">
-                    <img class="this_img"  ng-src="img/[[listMenu[i].image]]">
+                    <img class="this_img" ng-src="img/[[listMenu[i].image]]">
                 </div>
                 <div class="name">[[listMenu[i].name]]</div>
                 <div class="price">[[listMenu[i].price]] B</div>
@@ -100,7 +100,7 @@
                         <span class="set_center">Add To Cart</span>
                     </div>
                 </div>
-                
+
 
             </div>
             <div class="each_rice margin_right">
@@ -110,14 +110,14 @@
                 <div class="name">[[listMenu[i+1].name]]</div>
                 <div class="price">[[listMenu[i+1].price]] B</div>
                 <div class="select_box">
-                        <input ng-model="quantity2" class="select_amount" type="number" value="1" placeholder="enter your amount">
-                        <!-- <select class="select_amount">
+                    <input ng-model="quantity2" class="select_amount" type="number" value="1" placeholder="enter your amount">
+                    <!-- <select class="select_amount">
                             <option value="">choose 1</option>
                         </select> -->
-                        <div ng-click="addToCart([[listMenu[i+1].id]], quantity2, [[listMenu[i+1].price]])"class="addcart">
-                                <span class="set_center">Add To Cart</span>
-                            </div>
+                    <div ng-click="addToCart([[listMenu[i+1].id]], quantity2, [[listMenu[i+1].price]])" class="addcart">
+                        <span class="set_center">Add To Cart</span>
                     </div>
+                </div>
 
 
             </div>
@@ -128,14 +128,14 @@
                 <div class="name">[[listMenu[i+2].name]]</div>
                 <div class="price">[[listMenu[i+2].price]] B</div>
                 <div class="select_box">
-                        <input ng-model="quantity3" class="select_amount" type="number" value="1" placeholder="enter your amount">
-                        <!-- <select class="select_amount">
+                    <input ng-model="quantity3" class="select_amount" type="number" value="1" placeholder="enter your amount">
+                    <!-- <select class="select_amount">
                             <option value="">choose 1</option>
                         </select> -->
-                        <div ng-click="addToCart([[listMenu[i+2].id]], quantity3, [[listMenu[i+2].price]])" class="addcart">
-                                <span class="set_center">Add To Cart</span>
-                            </div>
+                    <div ng-click="addToCart([[listMenu[i+2].id]], quantity3, [[listMenu[i+2].price]])" class="addcart">
+                        <span class="set_center">Add To Cart</span>
                     </div>
+                </div>
 
             </div>
         </div>

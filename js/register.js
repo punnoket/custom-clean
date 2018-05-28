@@ -42,3 +42,26 @@ function validateEmail() {
     var regex = /[\S]+@[\S]+\.[\S]+/;
     return regex.test(email.value);
 }
+
+
+
+$("#login").click(function () {
+    $(".relative_pop").show();
+ });
+
+ $(".relative_pop").click(function () {
+    $(".relative_pop").hide();
+ });
+
+$("#home").click(function () {
+    window.location = 'index.html'
+ });
+ $("#customize").click(function () {
+    window.location = 'customize.html'
+ });
+ $("#speciel").click(function () {
+    window.location = 'speciel.html'
+ });
+ $("#register").click(function () {
+    window.location = 'register.html'
+ });

@@ -14,3 +14,10 @@ $(".img_cancel").click(function () {
  $("#register").click(function () {
     window.location = 'register.html'
  });
+
+ $("#login").click(function () {
+    $(".relative_pop").show();
+ });
+ $(".relative_pop").click(function () {
+    $(".relative_pop").hide();
+ });

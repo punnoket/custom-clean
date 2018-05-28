@@ -23,12 +23,12 @@
     padding: 24px;
     /* background-color: red; */
 }
-.bg_popup{
+.relative_pop{
+    height: 100%;
     width: 100%;
-    height: 100vh;;
-    position: relative;
-    box-sizing: border-box;
-    background-color: red;
+    background-color: rgba(1, 1, 1, 0.01);
+    position: fixed;
+    z-index: 1000000;
 }
 .relative{
     width: 100%;
@@ -102,7 +102,7 @@ header div {
     line-height:1.5em;
     font-size:20px;
     white-space:nowrap;
-    color: #95989A;;
+    color: #95989A;
 }
 header h1 {
     font-size:inherit; /* Change font-size in header */
