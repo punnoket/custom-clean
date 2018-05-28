@@ -46,6 +46,13 @@ body{
     background-color: aliceblue;
     float: left;
 }
+.img_logo2{
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    left: calc(50% - 25%);
+    top: calc(50% - 35%);
+}
 .menu_header{
     width: calc(100% - 248px);
     height: 100%;
