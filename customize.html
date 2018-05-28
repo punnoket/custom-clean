@@ -14,7 +14,7 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
-    <div class="" class="relative">
+    <div class="" class="relative_pop">
         <div ng-if="login == false" class="popup_box">
             <div class="relative">
                 <img id="popup_pic" src="img/pop.svg">
@@ -225,7 +225,13 @@
                 </div>
             </div>
         </div>
-
+        <div class="head_custom">
+            <span class="set_center_left">4. CHOOSE AMOUNT</span>
+        </div>
+        <div class="input_amount_box">
+            <input class="input_four" type="number" value="" placeholder="enter your จำนวนกล่อง">
+            <div class="text_four"><span class="set_center_left">กรุณาใส่จำนวนกล่องที่ต้องการจัดสั่ง</span></div>
+        </div>
         <div ng-click="addCustom()" class="finish_btn">
             <span class="set_center">FINISH</span>
         </div>
