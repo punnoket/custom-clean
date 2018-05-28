@@ -139,6 +139,7 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                     data: JSON.stringify(data)
                 })
                 .then(function (response) {
+                    console.log(response.data)
                     if (response.data.status == 200) {
                         alert("Add to cart Success : DD")
                         $window.location.href = "./index.html";

@@ -12,7 +12,7 @@
     <script src="js/jquery.easing.1.3.min.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getOrder()">
 
     <div class="main_header">
         <div class="logo_header">
@@ -31,12 +31,6 @@
             <div id="cart" class="li_menu">
                 <span class="set_center">CART</span>
             </div>
-            <div id="login" ng-if="login == false" class="li_menu_right">
-                <span class="set_center">LOGIN</span>
-            </div>
-            <div id="register" ng-if="login == false" class="li_menu_right">
-                <span class="set_center">REGISTER</span>
-            </div>
             <div ng-if="login == true" class="li_menu_right">
                 <span ng-click="logout()" class="set_center">LOGOUT</span>
             </div>
@@ -53,43 +47,25 @@
             <table class="table1">
                 <tr>
                     <th class="image_cart"></th>
-                    <th>ชื่อเมนู</th>
-                    <th>จำนวน</th>
-                    <th>ราคา</th>
+                    <th>Menu Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
 
                 </tr>
-                <tr>
+                <tr ng-repeat="order in listMenu">
                     <td>
-                        <img class="img_menu_cart" src="">
+                        <img class="img_menu_cart" ng-src="img/[[order.menu.image]]">>
                     </td>
-                    <td class="">ข้าวขาว
+                    <td class="">[[order.menu.name]]
                     </td>
-                    <td>2</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="img_menu_cart" src="">
-                    </td>
-                    <td class="">ผักรวม
-                    </td>
-                    <td>2</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="img_menu_cart" src="">
-                    </td>
-                    <td class="">หมู
-                    </td>
-                    <td>2</td>
-                    <td>500</td>
+                    <td>[[order.quantity]]</td>
+                    <td>[[order.menu.price]]</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td class=""></td>
-                    <td class="total_price">ราคารวม</td>
-                    <td>1500</td>
+                    <td class="total_price">Total Price</td>
+                    <td>[[totalPriceMenu]] B.</td>
                 </tr>
 
 
@@ -163,5 +139,5 @@
     <script src="js/index.js"></script>
     <script src="js/popup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/cutomizeManager.js"></script>
+    <script src="js/cartManager.js"></script>
 </body>

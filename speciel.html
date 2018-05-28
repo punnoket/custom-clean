@@ -16,7 +16,6 @@
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
         <div ng-show="!login" class="relative_pop" hidden>
-            </div>
             <div ng-show="!login" class="popup_box" hidden>
                 <div class="relative">
                     <img id="popup_pic" src="img/pop.svg">
@@ -30,6 +29,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+
     <div ng-show="show" id="popup" class="option">
         <div class="content_box">
             <div class="content_option">
@@ -59,7 +60,7 @@
             <div id="speciel" class="li_menu">
                 <span class="set_center">SPECIEL MENU</span>
             </div>
-            <div id="cart" class="li_menu">
+            <div id="cart" ng-show="login" class="li_menu">
                 <span class="set_center">CART</span>
             </div>
 
@@ -88,8 +89,8 @@
             <span class="set_center_left">1. SPECIEL MENU</span>
         </div>
         <div ng-repeat="i in range(listMenu.length, 3)" class="rice_content">
-            <div class="each_rice margin_right" ng-click="showDetail(listMenu[i])">
-                <div class="img_content">
+            <div class="each_rice margin_right">
+                <div class="img_content" ng-click="showDetail(listMenu[i])">
                     <img class="this_img" ng-src="img/[[listMenu[i].image]]">
                 </div>
                 <div class="name">[[listMenu[i].name]]</div>
@@ -106,8 +107,8 @@
 
 
             </div>
-            <div class="each_rice margin_right" ng-click="showDetail(listMenu[i+1])">
-                <div class="img_content">
+            <div class="each_rice margin_right">
+                <div class="img_content" ng-click="showDetail(listMenu[i+1])"> 
                     <img class="this_img" ng-src="img/[[listMenu[i+1].image]]">
                 </div>
                 <div class="name">[[listMenu[i+1].name]]</div>
@@ -124,8 +125,8 @@
 
 
             </div>
-            <div class="each_rice " ng-click="showDetail(listMenu[i+2])">
-                <div class="img_content">
+            <div class="each_rice ">
+                <div class="img_content" ng-click="showDetail(listMenu[i+2])">
                     <img class="this_img" ng-src="img/[[listMenu[i+2].image]]">
                 </div>
                 <div class="name">[[listMenu[i+2].name]]</div>

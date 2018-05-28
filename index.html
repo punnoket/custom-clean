@@ -15,7 +15,6 @@
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
         <div ng-show="!login" class="relative_pop" hidden>
-            </div>
             <div ng-show="!login" class="popup_box" hidden>
                 <div class="relative">
                     <img id="popup_pic" src="img/pop.svg">
@@ -29,8 +28,8 @@
                     </div>
                 </div>
             </div>
-
-
+        </div>
+ 
 
     <div class="main_header">
         <div class="logo_header">
@@ -46,7 +45,7 @@
             <div id="speciel" class="li_menu">
                 <span class="set_center">SPECIEL MENU</span>
             </div>
-            <div id="cart" class="li_menu">
+            <div id="cart" ng-show="login" class="li_menu">
                 <span class="set_center">CART</span>
             </div>
             <div id="login" ng-show="!login" class="li_menu_right">
