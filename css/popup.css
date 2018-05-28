@@ -114,12 +114,12 @@
 
 
 
-
-
-
-
-
-
+.img_popup2{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
 
 
 /* iPhone5 */

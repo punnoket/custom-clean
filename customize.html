@@ -14,21 +14,23 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
-    <div class="relative_pop">
-    </div>
-    <div ng-if="login == false" class="popup_box">
-        <div class="relative">
-            <img id="popup_pic" src="img/pop.svg">
-            <div class="pop_mainhead">เข้าสู่ระบบ</div>
-            <div class="pop_head2">Username</div>
-            <input class="login_pop" id="email" type="text" ng-model="username">
-            <div class="pop_head2">Password</div>
-            <input class="login_pop" id="pass" type="password" ng-model="password">
-            <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
-                <span class="set_center">LOGIN</span>
+        <div ng-show="!login" class="relative_pop" hidden>
+            <div ng-show="!login" class="popup_box" hidden>
+                <div class="relative">
+                    <img id="popup_pic" src="img/pop.svg">
+                    <div class="pop_mainhead">เข้าสู่ระบบ</div>
+                    <div class="pop_head2">Username</div>
+                    <input class="login_pop" id="email" type="text" ng-model="username">
+                    <div class="pop_head2">Password</div>
+                    <input class="login_pop" id="pass" type="password" ng-model="password">
+                    <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
+                        <span class="set_center">LOGIN</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+
     <div class="main_header">
         <div class="logo_header">
             <img  class="img_logo_app" src="">
@@ -43,19 +45,19 @@
             <div id="speciel" class="li_menu">
                 <span class="set_center">SPECIEL MENU</span>
             </div>
-            <div id="cart" class="li_menu">
+            <div id="cart" ng-show="login" class="li_menu">
                 <span class="set_center">CART</span>
             </div>
-            <div id="login" ng-if="login == false" class="li_menu_right">
+            <div id="login" ng-show="!login" class="li_menu_right">
                 <span class="set_center">LOGIN</span>
             </div>
-            <div id="register" ng-if="login == false" class="li_menu_right">
+            <div id="register" ng-show="!login" class="li_menu_right">
                 <span class="set_center">REGISTER</span>
             </div>
-            <div ng-if="login == true" class="li_menu_right">
+            <div ng-show="login" class="li_menu_right">
                 <span ng-click="logout()" class="set_center">LOGOUT</span>
             </div>
-            <div ng-if="login == true" class="li_menu_right">
+            <div ng-show="login" class="li_menu_right">
                 <span class="set_center">[[username]]</span>
             </div>
         </div>
@@ -143,7 +145,7 @@
                 <div class="price">[[listVegetable[i+2].price]] B</div>
                 <div class="field_radio">
                     <label class="control control--radio">choose this
-                        <input id="congen_yes" type="radio" name="vegetableRadio" value="choose" ng-click="setVegetableId([[listVegetable[i+2].id]],[[listVegetable[i+2].price]])">)">
+                        <input id="congen_yes" type="radio" name="vegetableRadio" value="choose" ng-click="setVegetableId([[listVegetable[i+2].id]],[[listVegetable[i+2].price]])">
                         <div class="control__indicator"></div>
                     </label>
                 </div>
@@ -221,7 +223,7 @@
                 </div>
                 <div class="field_radio">
                     <label class="control control--radio">choose this
-                        <input id="congen_yes" type="radio" name="meetRadio" value="choose" ng-click="setMeetId([[listMeet[i+2].id]] ,[[listMeet[i+2].price]])">)">
+                        <input id="congen_yes" type="radio" name="meetRadio" value="choose" ng-click="setMeetId([[listMeet[i+2].id]] ,[[listMeet[i+2].price]])">
                         <div class="control__indicator"></div>
                     </label>
                 </div>
@@ -231,12 +233,12 @@
             <span class="set_center_left">4. CHOOSE AMOUNT</span>
         </div>
         <div class="input_amount_box">
-            <input class="input_four" type="number" value="" placeholder="enter your จำนวนกล่อง">
+            <input ng-model="quantity" class="input_four" type="number" value="" placeholder="enter your จำนวนกล่อง">
             <div class="text_four">
                 <span class="set_center_left">กรุณาใส่จำนวนกล่องที่ต้องการจัดสั่ง</span>
             </div>
         </div>
-        <div ng-click="addCustom()" class="finish_btn">
+        <div ng-click="addCustom(quantity)" class="finish_btn">
             <span class="set_center">FINISH</span>
         </div>
     </div>

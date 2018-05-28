@@ -4,14 +4,9 @@
 	define('DB_SERVER', "localhost");
 	define('DB_DATABASE', "custom_clean"); 
 	
-	//$con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
-	
 	$con = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD,DB_DATABASE);
 	mysqli_set_charset($con, "utf8");
 	if($con->connect_error){
 		die("Connect Failed : ".$con->connect_error);
 	}
-
-	
-	//echo 'Connected successfully';
 ?>

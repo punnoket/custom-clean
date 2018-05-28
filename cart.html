@@ -12,7 +12,7 @@
     <script src="js/jquery.easing.1.3.min.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getOrder()">
 
     <div class="main_header">
         <div class="logo_header">
@@ -31,12 +31,6 @@
             <div id="cart" class="li_menu">
                 <span class="set_center">CART</span>
             </div>
-            <div id="login" ng-if="login == false" class="li_menu_right">
-                <span class="set_center">LOGIN</span>
-            </div>
-            <div id="register" ng-if="login == false" class="li_menu_right">
-                <span class="set_center">REGISTER</span>
-            </div>
             <div ng-if="login == true" class="li_menu_right">
                 <span ng-click="logout()" class="set_center">LOGOUT</span>
             </div>
@@ -53,104 +47,96 @@
             <table class="table1">
                 <tr>
                     <th class="image_cart"></th>
-                    <th>ชื่อเมนู</th>
-                    <th>จำนวน</th>
-                    <th>ราคา</th>
+                    <th>Menu Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
 
                 </tr>
-                <tr>
+                <tr ng-repeat="order in listMenu">
                     <td>
-                        <img class="img_menu_cart" src="">
+                        <img class="img_menu_cart" ng-src="img/[[order.menu.image]]">
                     </td>
-                    <td class="">ข้าวขาว
+                    <td class="">[[order.menu.name]]
                     </td>
-                    <td>2</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="img_menu_cart" src="">
-                    </td>
-                    <td class="">ผักรวม
-                    </td>
-                    <td>2</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="img_menu_cart" src="">
-                    </td>
-                    <td class="">หมู
-                    </td>
-                    <td>2</td>
-                    <td>500</td>
+                    <td>[[order.quantity]]</td>
+                    <td>[[order.menu.price]]</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td class=""></td>
-                    <td class="total_price">ราคารวม</td>
-                    <td>1500</td>
+                    <td class="total_price">Total Price</td>
+                    <td>[[totalPriceMenu]] B.</td>
                 </tr>
-
-
             </table>
 
         </div>
         <div class="head_order2">Customize Menu</div>
-        <div class="order_number">order 1.</div>
+        <div ng-repeat="order in listCustom">
+        <div class="order_number">order [[$index+1]].</div>
         <div class="table_order">
             <table class="table2">
                 <tr>
                     <th class="image_cart"></th>
-                    <th class="th1">รายละเอียดเมนู</th>
+                    <th class="th1">Menu Detail</th>
                     <th>ราคา</th>
 
                 </tr>
                 <tr>
                     <td>
-                        <img class="img_menu_cart" src="">
+                        <img class="img_menu_cart" ng-src="img/[[order.rice.image]]">
                     </td>
-                    <td class="">ข้าวขาว
+                    <td class="">[[order.rice.name]]
                     </td>
-                    <td>500</td>
+                    <td>[[order.rice.price]]</td>
                 </tr>
                 <tr>
                     <td>
-                        <img class="img_menu_cart" src="">
+                        <img class="img_menu_cart" ng-src="img/[[order.vegetable.image]]">
                     </td>
-                    <td class="">ผักรวม
+                    <td class="">[[order.vegetable.name]]
                     </td>
-                    <td>500</td>
+                    <td>[[order.vegetable.price]]</td>
                 </tr>
                 <tr>
                     <td>
-                        <img class="img_menu_cart" src="">
+                        <img class="img_menu_cart" ng-src="img/[[order.meet.image]]">
                     </td>
-                    <td class="">ฟมู
+                    <td class="">[[order.meet.name]]
                     </td>
-                    <td>500</td>
+                    <td>[[order.meet.price]]</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="total_price">จำนวนกล่อง</td>
-                    <td>2</td>
+                    <td class="total_price">Cook</td>
+                    <td>[[order.cook]]</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="total_price">ราคารวม</td>
-                    <td>1500 * 2 = 3000</td>
+                    <td class="total_price">Quantity</td>
+                    <td>[[order.customQuantity]]</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="total_price">Total Custom Menu Price</td>
+                    <td>[[order.price]] B.</td>
                 </tr>
 
 
             </table>
         </div>
-
+    </div>
+    <tr>
+        <td></td>
+        <td class=""></td>
+        <td class="total_price">Total Price</td>
+        <td>[[totalPriceCustom]] B.</td>
+    </tr>
 
         <hr>
 
         <div class="all_total">
-            <span class="span_left">ราคารวมทั้งหมด</span>
-            <span class="span_right">1000฿</span>
+            <span class="span_left">Total Price</span>
+            <span class="span_right">[[totalPrice]] B.</span>
         </div>
         <div class="all_total">
             <div class="next_btn">
@@ -163,5 +149,5 @@
     <script src="js/index.js"></script>
     <script src="js/popup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/cutomizeManager.js"></script>
+    <script src="js/cartManager.js"></script>
 </body>

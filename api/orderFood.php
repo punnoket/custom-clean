@@ -10,46 +10,81 @@
     $result = $con->query($sql);
 
     if($result !== FALSE){
-        header('Content-Type: application/json');
         $menuIdArray = array();
         $customIdArray = array();
+
+        $customQuantity = array();
+        $menuQuantity = array();
+
         $totalPrice = 0;
 
         while($r = mysqli_fetch_assoc($result)) {
             $menuIdArray[] = $r["menu_id"];
             $customIdArray[] = $r["custom_id"];
             $totalPrice += $r["total_price"];
+
+            if($r["menu_id"] !=0) {
+                $menuQuantity[] = $r["quantity"];
+            }
+
+            if($r["custom_id"] !=0) {
+                $customQuantity[] = $r["quantity"];
+            }
         }   
 
         $menuResult = array();
         $customResult = array();
 
+        $responseMenu = new \stdClass();
+        $menuResponse = new \stdClass();
+
+        $indexMenu = 0;
+        $totalPriceMenu = 0;
+        $price = 0 ;
         foreach ($menuIdArray as &$menuId) {
             if($menuId !== "0") {
                 $sql = "SELECT * FROM menu WHERE id = '$menuId'";
                 $resultMenu = $con->query($sql);
+
                 while($menu = mysqli_fetch_assoc($resultMenu)) {
-                    $menuResult[] = $menu;
+                    $menuResponse->name = $menu["name"];
+                    $menuResponse->image = $menu["image"];
+                    $menuResponse->price = $menu["price"];
+                    $price+= $menu["price"];
                 }
+                $responseMenu->menu = $menuResponse;
+                $responseMenu->quantity = $menuQuantity[$indexMenu];
+                $totalPriceMenu += ($price * $menuQuantity[$indexMenu]);
+                $menuResult[] = $responseMenu;
+                $indexMenu++;
+                $responseMenu = new \stdClass();
+                $menuResponse = new \stdClass();
             }
         }
 
+        $index = 0;
+        $totalPriceCustom = 0;
         foreach ($customIdArray as &$customId) {
             if($customId !== "0") {
                 $customResponse = new \stdClass();
                 $sql = "SELECT * FROM custom_clean WHERE id = '$customId'";
                 $resultCustom = $con->query($sql);
+
                 while($custom = mysqli_fetch_assoc($resultCustom)) {
                     $riceResponse = new \stdClass();
                     $vegetableResponse = new \stdClass();
                     $meetResponse = new \stdClass();
+                    $totalCustom = 0;
 
                     $riceId = $custom["rice_id"];
                     $sql = "SELECT * FROM rice WHERE id = '$riceId'";
                     $resultRice = $con->query($sql);
+
                     while($rice = mysqli_fetch_assoc($resultRice)) {
                         $riceResponse->name = $rice["name"];
                         $riceResponse->image = $rice["image"];
+                        $riceResponse->price = $rice["price"];
+                        $totalCustom+=$rice["price"];
                     }
 
                     $vegetaId = $custom["vegetable_id"];
@@ -58,6 +93,8 @@
                     while($vegetable = mysqli_fetch_assoc($resultVegetable)) {
                         $vegetableResponse->name = $vegetable["name"];
                         $vegetableResponse->image = $vegetable["image"];
+                        $vegetableResponse->price = $vegetable["price"];
+                        $totalCustom+=$vegetable["price"];
                     }
 
                     $meetId = $custom["meet_id"];
@@ -66,20 +103,31 @@
                     while($meet = mysqli_fetch_assoc($resultMeet)) {
                         $meetResponse->name = $meet["name"];
                         $meetResponse->image = $meet["image"];
+                        $meetResponse->price = $meet["price"];
+                        $totalCustom+=$meet["price"];
                     }
                     $customResponse->rice = $riceResponse;
                     $customResponse->vegetable = $vegetableResponse;
                     $customResponse->meet = $meetResponse;
                     $customResponse->cook = $custom["cook"];
+                    $customResponse->price = ($totalCustom * $customQuantity[$index]);
+                    $customResponse->customQuantity = $customQuantity[$index];
+
+                    $totalPriceCustom += $customResponse->price;
+                    $totalCustom = 0;
+                    $index++;
                     $customResult[] = $customResponse;
                 }
             }
         }
 
-        $response->menu = $menuResult;
+        $response->spacialMenu = $menuResult;
         $response->customMenu = $customResult;
+        $response->totalPriceMenu = ($totalPrice - $totalPriceCustom)<0? 0 :($totalPrice - $totalPriceCustom);
+        $response->totalPriceCustom = $totalPriceCustom;
         $response->totalPrice = $totalPrice;
 
+        header('Content-Type: application/json');
         echo json_encode($response);
     }
 ?>

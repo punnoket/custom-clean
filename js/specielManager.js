@@ -10,20 +10,7 @@ app.config(function ($interpolateProvider) {
 });
 
 app.controller('myCtrl', function ($scope, $http, $location, $window) {
-
-    $scope.isLogin = function () {
-        $http({
-                method: 'GET',
-                url: "api/isLogin.php"
-            })
-            .then(function (response) {
-                $scope.login = response.data.isLogin
-                if ($scope.login) {
-                    $scope.username = response.data.username
-                }
-            }, function (response) {
-            });
-    }
+    $scope.show  = false
 
     $scope.sendLogin = function (username, password) {
         var data = {
@@ -84,11 +71,21 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
             });
     }
 
+    $scope.showDetail = function (input) {
+       $scope.show = true
+       console.log($scope.show);
+       $scope.menu = input
+    }
+
+    $scope.dissmissDetail = function (menu) {
+        $scope.show = false
+        $window.location.href = "./speciel.html";
+    }
+
     $scope.addToCart = function (menuId, quantity, price) {
         if (typeof quantity != 'undefined') {
 
         var totalPrice = price * quantity
-        console.log(typeof (menuId[0]));
         var id = menuId[0]
         var data = {
             "menuId": id[0],
