@@ -14,18 +14,18 @@
 </head>
 
 <body>
-        <div  class="relative_pop" hidden>
-                <div ng-if="login == false" class="popup_box">
-                    <div class="relative">
-                        <img id="popup_pic" src="img/pop.svg">
-                        <div class="pop_mainhead">เข้าสู่ระบบ</div>
-                        <div class="pop_head2">Username</div>
-                        <input class="login_pop" id="email" type="text" ng-model="username">
-                        <div class="pop_head2">Password</div>
-                        <input class="login_pop" id="pass" type="password" ng-model="password">
-                        <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
-                            <span  class="set_center">LOGIN</span>
-                        </div>
+        <div class="relative_pop" hidden>
+            </div>
+            <div ng-if="login == false" class="popup_box">
+                <div class="relative">
+                    <img id="popup_pic" src="img/pop.svg">
+                    <div class="pop_mainhead">เข้าสู่ระบบ</div>
+                    <div class="pop_head2">Username</div>
+                    <input class="login_pop" id="email" type="text" ng-model="username">
+                    <div class="pop_head2">Password</div>
+                    <input class="login_pop" id="pass" type="password" ng-model="password">
+                    <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
+                        <span class="set_center">LOGIN</span>
                     </div>
                 </div>
             </div>
@@ -120,6 +120,7 @@
             </div>
         </div>
     </form>
+    <script src="js/popup.js"></script>
     <script src="js/register.js"></script>
 </body>
 

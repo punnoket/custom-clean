@@ -8,32 +8,3 @@ window.onload = function(){
    
     
 }
-
-$("#home").click(function () {
-    window.location = 'index.html'
- });
- $("#customize").click(function () {
-    window.location = 'customize.html'
- });
- $("#speciel").click(function () {
-    window.location = 'speciel.html'
- });
- $("#register").click(function () {
-    window.location = 'register.html'
- });
-
-
- $("#login").click(function () {
-    $(".relative_pop").show();
- });
-
- $(".relative_pop").click(function () {
-    $(".relative_pop").hide();
- });
- 
-
- $('.each_rice').click(function() {
-    $(this).css({
-        'box-shadow': '0px 12px 32px rgba(0, 0, 0, 0.5)'
-    });
-});
