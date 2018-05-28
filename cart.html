@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CleanLean</title>
+    <link rel="shortcut icon" href="img/logo.svg" />
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
+
+    <div class="main_header">
+        <div class="logo_header">
+            <img class="img_logo_app" src="">
+        </div>
+        <div class="menu_header">
+            <div id="home" class="li_menu">
+                <span class="set_center">HOME</span>
+            </div>
+            <div id="customize" class="li_menu">
+                <span class="set_center">CUSTOMIZE MENU</span>
+            </div>
+            <div id="speciel" class="li_menu">
+                <span class="set_center">SPECIEL MENU</span>
+            </div>
+            <div id="login" ng-if="login == false" class="li_menu_right">
+                <span class="set_center">LOGIN</span>
+            </div>
+            <div id="register" ng-if="login == false" class="li_menu_right">
+                <span class="set_center">REGISTER</span>
+            </div>
+            <div ng-if="login == true" class="li_menu_right">
+                <span ng-click="logout()" class="set_center">LOGOUT</span>
+            </div>
+            <div ng-if="login == true" class="li_menu_right">
+                <span class="set_center">[[username]]</span>
+            </div>
+        </div>
+    </div>
+    <div class="content_cart">
+
+        <div class="order">YOUR ORDER</div>
+        <div class="head_order">Special Menu</div>
+        <div class="table_order">
+            <table class="table1">
+                <tr>
+                    <th class="image_cart"></th>
+                    <th>ชื่อเมนู</th>
+                    <th>จำนวน</th>
+                    <th>ราคา</th>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img class="img_menu_cart" src="">
+                    </td>
+                    <td class="">ข้าวขาว
+                    </td>
+                    <td>2</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="img_menu_cart" src="">
+                    </td>
+                    <td class="">ผักรวม
+                    </td>
+                    <td>2</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="img_menu_cart" src="">
+                    </td>
+                    <td class="">หมู
+                    </td>
+                    <td>2</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class=""></td>
+                    <td class="total_price">ราคารวม</td>
+                    <td>1500</td>
+                </tr>
+
+
+            </table>
+
+        </div>
+        <div class="head_order2">Customize Menu</div>
+        <div class="order_number">order 1.</div>
+        <div class="table_order">
+            <table class="table2">
+                <tr>
+                    <th class="image_cart"></th>
+                    <th class="th1">รายละเอียดเมนู</th>
+                    <th>ราคา</th>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img class="img_menu_cart" src="">
+                    </td>
+                    <td class="">ข้าวขาว
+                    </td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="img_menu_cart" src="">
+                    </td>
+                    <td class="">ผักรวม
+                    </td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="img_menu_cart" src="">
+                    </td>
+                    <td class="">ฟมู
+                    </td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="total_price">จำนวนกล่อง</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="total_price">ราคารวม</td>
+                    <td>1500 * 2 = 3000</td>
+                </tr>
+
+
+            </table>
+        </div>
+
+
+        <hr>
+
+        <div class="all_total">
+            <span class="span_left">ราคารวมทั้งหมด</span>
+            <span class="span_right">1000฿</span>
+        </div>
+        <div class="all_total">
+            <div class="next_btn">
+                <span class="set_center">NEXT</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/cutomizeManager.js"></script>
+</body>
