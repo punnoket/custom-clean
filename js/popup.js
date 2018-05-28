@@ -11,6 +11,9 @@ $("#home").click(function () {
  $("#register").click(function () {
     window.location = 'register.html'
  });
+ $("#cart").click(function () {
+    window.location = 'cart.html'
+ });
  $("#login").click(function () {
     $(".relative_pop").show();
     $(".popup_box").show();
