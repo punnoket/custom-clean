@@ -57,6 +57,8 @@
                 $totalPriceMenu += ($price * $menuQuantity[$indexMenu]);
                 $menuResult[] = $responseMenu;
                 $indexMenu++;
+                $responseMenu = new \stdClass();
+                $menuResponse = new \stdClass();
             }
         }
 
@@ -121,7 +123,7 @@
 
         $response->spacialMenu = $menuResult;
         $response->customMenu = $customResult;
-        $response->totalPriceMenu = $totalPriceMenu;
+        $response->totalPriceMenu = ($totalPrice - $totalPriceCustom)<0? 0 :($totalPrice - $totalPriceCustom);
         $response->totalPriceCustom = $totalPriceCustom;
         $response->totalPrice = $totalPrice;
 
