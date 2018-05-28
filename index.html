@@ -14,26 +14,26 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
-        <div class="relative_pop">
+    <div class="relative_pop">
+    </div>
+    <div ng-if="login == false" class="popup_box">
+        <div class="relative">
+            <img id="popup_pic" src="img/pop.svg">
+            <div class="pop_mainhead">เข้าสู่ระบบ</div>
+            <div class="pop_head2">Username</div>
+            <input class="login_pop" id="email" type="text" ng-model="username">
+            <div class="pop_head2">Password</div>
+            <input class="login_pop" id="pass" type="password" ng-model="password">
+            <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
+                <span class="set_center">LOGIN</span>
             </div>
-            <div ng-if="login == false" class="popup_box">
-                <div class="relative">
-                    <img id="popup_pic" src="img/pop.svg">
-                    <div class="pop_mainhead">เข้าสู่ระบบ</div>
-                    <div class="pop_head2">Username</div>
-                    <input class="login_pop" id="email" type="text" ng-model="username">
-                    <div class="pop_head2">Password</div>
-                    <input class="login_pop" id="pass" type="password" ng-model="password">
-                    <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
-                        <span class="set_center">LOGIN</span>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
 
     <div class="main_header">
         <div class="logo_header">
             <img class="img_logo2" src="img/logo2.png">
-    </div>
+        </div>
         <div class="menu_header">
             <div id="home" class="li_menu">
                 <span class="set_center">HOME</span>
@@ -62,20 +62,22 @@
         </div>
     </div>
     <div class="bg_content">
-        <img  class="img_bg" src="img/bg.jpg">
+        <img class="img_bg" src="img/bg.jpg">
     </div>
     <div class="main_content">
-        <div class="main_logo"></div>
+        <div class="main_logo">
+            <img class="img_logo_main" src="img/CleanLean.png">
+        </div>
         <div class="recommand">
             <div class="each_content">
                 <div class="each_box margin_right">
                     <img class="img_rec" src="img/rec1.jpg">
                 </div>
                 <div class="each_box margin_right">
-                        <img class="img_rec" src="img/rec2.jpg">
+                    <img class="img_rec" src="img/rec2.jpg">
                 </div>
                 <div class="each_box ">
-                        <img class="img_rec" src="img/rec3.jpg">
+                    <img class="img_rec" src="img/rec3.jpg">
                 </div>
             </div>
         </div>
