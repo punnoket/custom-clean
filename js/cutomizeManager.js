@@ -20,19 +20,6 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
 
     $scope.cook = -1
 
-    $scope.isLogin = function () {
-        $http({
-                method: 'GET',
-                url: "api/isLogin.php"
-            })
-            .then(function (response) {
-                $scope.login = response.data.isLogin
-                if ($scope.login) {
-                    $scope.username = response.data.username
-                }
-            }, function (response) {});
-    }
-
     $scope.sendLogin = function (username, password) {
         var data = {
             "username": username,
@@ -130,8 +117,7 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
         $scope.cook = cook
     }
 
-    $scope.addCustom = function () {
-        var quantity = 1
+    $scope.addCustom = function (quantity) {
         var totalPrice = (parseInt($scope.ricePrice) + parseInt($scope.meetPrice) + parseInt($scope.vegetablePrice)) * quantity
         var data = {
             "riceId": $scope.riceId,

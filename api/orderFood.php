@@ -43,6 +43,7 @@
                     $riceResponse = new \stdClass();
                     $vegetableResponse = new \stdClass();
                     $meetResponse = new \stdClass();
+                    $totalCustom = 0;
 
                     $riceId = $custom["rice_id"];
                     $sql = "SELECT * FROM rice WHERE id = '$riceId'";
@@ -50,6 +51,8 @@
                     while($rice = mysqli_fetch_assoc($resultRice)) {
                         $riceResponse->name = $rice["name"];
                         $riceResponse->image = $rice["image"];
+                        $riceResponse->price = $rice["price"];
+                        $totalCustom+=$rice["price"];
                     }
 
                     $vegetaId = $custom["vegetable_id"];
@@ -58,6 +61,8 @@
                     while($vegetable = mysqli_fetch_assoc($resultVegetable)) {
                         $vegetableResponse->name = $vegetable["name"];
                         $vegetableResponse->image = $vegetable["image"];
+                        $vegetableResponse->price = $vegetable["price"];
+                        $totalCustom+=$vegetable["price"];
                     }
 
                     $meetId = $custom["meet_id"];
@@ -66,11 +71,15 @@
                     while($meet = mysqli_fetch_assoc($resultMeet)) {
                         $meetResponse->name = $meet["name"];
                         $meetResponse->image = $meet["image"];
+                        $meetResponse->price = $meet["price"];
+                        $totalCustom+=$meet["price"];
                     }
                     $customResponse->rice = $riceResponse;
                     $customResponse->vegetable = $vegetableResponse;
                     $customResponse->meet = $meetResponse;
                     $customResponse->cook = $custom["cook"];
+                    $customResponse->price = $totalCustom;
+                    $totalCustom = 0;
                     $customResult[] = $customResponse;
                 }
             }
