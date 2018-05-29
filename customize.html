@@ -14,26 +14,26 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
+
         <div ng-show="!login" class="relative_pop" hidden>
-            <div ng-show="!login" class="popup_box" hidden>
-                <div class="relative">
-                    <img id="popup_pic" src="img/pop.svg">
-                    <div class="pop_mainhead">เข้าสู่ระบบ</div>
-                    <div class="pop_head2">Username</div>
-                    <input class="login_pop" id="email" type="text" ng-model="username">
-                    <div class="pop_head2">Password</div>
-                    <input class="login_pop" id="pass" type="password" ng-model="password">
-                    <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
-                        <span class="set_center">LOGIN</span>
-                    </div>
-                </div>
+            </div>
+    <div ng-show="!login" class="popup_box" hidden>
+        <div class="relative">
+            <img id="popup_pic" src="img/pop.svg">
+            <div class="pop_mainhead">เข้าสู่ระบบ</div>
+            <div class="pop_head2">Username</div>
+            <input class="login_pop" id="email" type="text" ng-model="username">
+            <div class="pop_head2">Password</div>
+            <input class="login_pop" id="pass" type="password" ng-model="password">
+            <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
+                <span class="set_center">LOGIN</span>
             </div>
         </div>
-
+    </div>
 
     <div class="main_header">
         <div class="logo_header">
-            <img  class="img_logo_app" src="">
+            <img class="img_logo2" src="img/logo2.png">
         </div>
         <div class="menu_header">
             <div id="home" class="li_menu">
@@ -154,7 +154,7 @@
         <div class="head_custom">
             <span class="set_center_left">3. CHOOSE MEAT</span>
         </div>
-        <div ng-repeat="i in range(listMeet.length, 3)" class="rice_content2">
+        <div ng-repeat="i in range(listMeet.length, 3)" class="rice_content3">
             <div class="each_rice margin_right">
                 <div class="img_content">
                     <img class="this_img" ng-src="img/[[listMeet[i].image]]">
@@ -233,7 +233,7 @@
             <span class="set_center_left">4. CHOOSE AMOUNT</span>
         </div>
         <div class="input_amount_box">
-            <input ng-model="quantity" class="input_four" type="number" value="" placeholder="enter your จำนวนกล่อง">
+            <input ng-model="quantity" class="input_four" type="number" value="0" placeholder="enter your จำนวนกล่อง">
             <div class="text_four">
                 <span class="set_center_left">กรุณาใส่จำนวนกล่องที่ต้องการจัดสั่ง</span>
             </div>
@@ -246,7 +246,7 @@
     <script src="js/index.js"></script>
     <script src="js/popup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/cutomizeManager.js"></script>
+    <script src="js/customManager.js"></script>
 </body>
 
 </html>

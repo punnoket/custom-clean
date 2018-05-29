@@ -117,39 +117,44 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
         $scope.cook = cook
     }
 
-    $scope.addCustom = function (quantity) {
-        var totalPrice = (parseInt($scope.ricePrice) + parseInt($scope.meetPrice) + parseInt($scope.vegetablePrice)) * quantity
-        var data = {
-            "riceId": $scope.riceId,
-            "vegetableId": $scope.vegetableId,
-            "meetId": $scope.meetId,
-            "cook": $scope.cook,
-            "totalPrice": totalPrice,
-            "quantity": quantity,
-        }
-        console.log(data);
+    $scope.addCustom = function (quantity) {        
+        if (typeof quantity != 'undefined') {
+            var totalPrice = (parseInt($scope.ricePrice) + parseInt($scope.meetPrice) + parseInt($scope.vegetablePrice)) * quantity
+            var data = {
+                "riceId": $scope.riceId,
+                "vegetableId": $scope.vegetableId,
+                "meetId": $scope.meetId,
+                "cook": $scope.cook,
+                "totalPrice": totalPrice,
+                "quantity": quantity,
+            }
+            console.log(data);
 
-        if ($scope.riceId != -1 &&
-            $scope.meetId != -1 &&
-            $scope.vegetableId != -1 &&
-            $scope.cook != -1) {
-            $http({
-                    method: 'POST',
-                    url: "api/addCustom.php",
-                    data: JSON.stringify(data)
-                })
-                .then(function (response) {
-                    console.log(response.data)
-                    if (response.data.status == 200) {
-                        alert("Add to cart Success : DD")
-                        $window.location.href = "./index.html";
-                    } else {
-                        alert(response.data.message)
-                    }
-                }, function (response) {});
+            if ($scope.riceId != -1 &&
+                $scope.meetId != -1 &&
+                $scope.vegetableId != -1 &&
+                $scope.cook != -1) {
+                $http({
+                        method: 'POST',
+                        url: "api/addCustom.php",
+                        data: JSON.stringify(data)
+                    })
+                    .then(function (response) {
+                        console.log(response.data)
+                        if (response.data.status == 200) {
+                            alert("Add to cart Success : DD")
+                            $window.location.href = "./cart.html";
+                        } else {
+                            alert(response.data.message)
+                        }
+                    }, function (response) {});
 
+            } else {
+                alert("Please custom your menu")
+            }
         } else {
-            alert("Please custom your menu")
+            alert("Input your quantity")
+
         }
     }
 

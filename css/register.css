@@ -79,6 +79,20 @@ input[class=input_data]{
 .regis_btn{
     border: none;
     color: black;
+    width: 240px;
+    height: 40px;
     cursor: pointer;
     font-size: 18px;
+    border: 1px solid black;
+    border-radius: 24px;
+    position: relative;
+    box-sizing: border-box;  
+    /* margin: 24px auto; */
+    /* background: linear-gradient(-90deg,#1BA7BD,#4AD99D); */
 }
+ .alert_right{
+     /* float: right; */
+     font-size: 14px;
+     color: red;
+     margin-right: 8px;
+ }

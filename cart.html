@@ -16,8 +16,8 @@
 
     <div class="main_header">
         <div class="logo_header">
-            <img class="img_logo_app" src="">
-        </div>
+                <img class="img_logo2" src="img/logo2.png">
+            </div>
         <div class="menu_header">
             <div id="home" class="li_menu">
                 <span class="set_center">HOME</span>
@@ -78,7 +78,7 @@
                 <tr>
                     <th class="image_cart"></th>
                     <th class="th1">Menu Detail</th>
-                    <th>ราคา</th>
+                    <th>Price</th>
 
                 </tr>
                 <tr>
@@ -139,8 +139,8 @@
             <span class="span_right">[[totalPrice]] B.</span>
         </div>
         <div class="all_total">
-            <div class="next_btn">
-                <span class="set_center">NEXT</span>
+            <div  class="next_btn">
+                <span onclick="payment()" class="set_center">NEXT</span>
             </div>
         </div>
 
@@ -150,4 +150,9 @@
     <script src="js/popup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="js/cartManager.js"></script>
+    <script>
+        function payment() {
+            window.location.replace("./payment.html");
+        }
+        </script>
 </body>

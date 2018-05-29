@@ -135,7 +135,7 @@ header span.spacer:after {
     margin-bottom: 12px;
      width: 100%;
      height: 40px;
-    
+    padding-left: 8px;
      font-size: 14px;
      color: #8C8C8C;
      padding-top: 5px;

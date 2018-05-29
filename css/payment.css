@@ -1,0 +1,144 @@
+.content_cart{
+    width: 100%;
+    height: 100vh;
+    padding-top: 120px;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 0;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.purchase{
+    width: 100%;
+    height: 70px;
+    position: relative;
+    box-sizing: border-box;
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+.purchase_left{
+    width: 40%;
+    padding: 24px;
+    position: relative;
+    box-sizing: border-box;
+    height: calc(100% - 120px);
+    float: left;
+}
+.purchase_right{
+    width: 60%;
+    padding: 12px;
+    position: relative;
+    box-sizing: border-box;
+    height: calc(100% - 120px);
+    float: left;
+    /* background-color: red; */
+}
+.purchase_name{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 24px;
+}
+.purchase_addr{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 18px;
+    color: black;
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+.purchase_price{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+.purchase_text{
+    font-weight: normal;
+}
+.payment_box{
+    width: 630px;
+    margin: 0px auto;
+    padding-top: 24px;
+    height: calc(100% );
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 24px;
+    border-left: 1px solid gray;
+}
+
+.head_input{
+    font-size: 18px;
+    color: #000000;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box; 
+}
+.input_data_box{
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    height: 30px;
+    margin-bottom: 24px;
+    margin-left: 12px;
+}
+input[class=input_data]{
+    position: relative;
+    box-sizing: border-box;  
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 12px;
+    border: 1px solid black;
+    font-family: 'sukhumvit_setthin';
+}
+input[class=input_data2]{
+    position: relative;
+    box-sizing: border-box;  
+    width:45%;
+    height: 100%;
+    border: none;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 12px;
+    border: 1px solid black;
+    font-family: 'sukhumvit_setthin';
+}.each_all_left{
+    width: calc(100% / 2 - 24px);
+    float: left;
+}
+.each_all_right{
+    width: calc(100% / 2 - 24px);
+    float: right;
+}
+.pay_btn{
+    width: 240px;
+    height: 40px;
+    border-radius: 24px;
+    position: relative;
+    box-sizing: border-box;  
+    font-size: 22px;
+    margin: 24px auto;
+    /* background: linear-gradient(-90deg,#1BA7BD,#4AD99D); */
+    color: black;
+    border: 1px solid black;
+    /* left: calc(50% - 120px); */
+    /* bottom: 60px; */
+    cursor: pointer;
+}.clear_both{
+    width: 100%;
+    clear: both;
+}
+.pay_btn:hover{
+    color: white;
+    background-color: black;
+}

@@ -5,7 +5,7 @@
    z-index: -2;
     box-sizing: border-box;
     position: fixed;
-    background-color: red;
+    background-color: white;
 }
 .main_content{
     width: 100%;
@@ -58,7 +58,7 @@
     height: 100%;
     box-sizing: border-box;
     position: relative;
-    background-color: aliceblue;
+    background-color: white;
     float: left;
 }
 .content_footer{
@@ -82,4 +82,18 @@
     background-color: black;
     float: left;
     margin: 24px 48px;
+}
+.img_bg{
+    width: 100%;
+    height: 130%;
+}
+.img_logo_main{
+    width: 30%;
+    position: absolute;
+   top: calc(50vh - 6%);
+   left: calc(50% - 15%);
+}
+.img_rec{
+    width: 100%;
+    height: 100%;
 }
