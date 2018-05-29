@@ -100,6 +100,7 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
             .then(function (response) {
                 if (response.data.status == 200) {
                     alert("Add to cart Success : DD")
+                    $window.location.href = "./cart.html";
                 } else {
                     alert(response.data.message)
                 }

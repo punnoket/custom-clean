@@ -126,6 +126,7 @@
         $response->totalPriceMenu = ($totalPrice - $totalPriceCustom)<0? 0 :($totalPrice - $totalPriceCustom);
         $response->totalPriceCustom = $totalPriceCustom;
         $response->totalPrice = $totalPrice;
+        $_SESSION["totalPrice"] = $totalPrice;
 
         header('Content-Type: application/json');
         echo json_encode($response);

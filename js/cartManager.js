@@ -1,5 +1,4 @@
 var app = angular.module('myApp', []);
-
 app.config(function ($httpProvider) {
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -18,7 +17,7 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
             })
             .then(function (response) {
                 console.log(response.data);
-                
+
                 $scope.listOrder = response.data
                 $scope.listMenu = $scope.listOrder.spacialMenu
                 $scope.listCustom = $scope.listOrder.customMenu
@@ -26,8 +25,6 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
                 $scope.totalPriceCustom = $scope.listOrder.totalPriceCustom
                 $scope.totalPrice = $scope.listOrder.totalPrice
 
-            }, function (response) {
-            });
+            }, function (response) {});
     }
-
 });

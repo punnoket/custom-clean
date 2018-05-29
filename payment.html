@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>CleanLean</title>
     <link rel="shortcut icon" href="img/logo.svg" />
-    <link rel="stylesheet" type="text/css" href="payment.css">
+    <link rel="stylesheet" type="text/css" href="css/payment.css">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/jquery.easing.1.3.min.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
-    
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="getDetail()">
+
     <div class="main_header">
         <div class="logo_header">
             <img class="img_logo2" src="img/logo2.png">
@@ -28,32 +28,77 @@
             <div id="speciel" class="li_menu">
                 <span class="set_center">SPECIEL MENU</span>
             </div>
-            <div id="cart" class="li_menu">
-                <span class="set_center">CART</span>
-            </div>
-            <div id="login" ng-if="login == false" class="li_menu_right">
-                <span class="set_center">LOGIN</span>
-            </div>
-            <div id="register" ng-if="login == false" class="li_menu_right">
-                <span class="set_center">REGISTER</span>
-            </div>
-            <div ng-if="login == true" class="li_menu_right">
-                <span ng-click="logout()" class="set_center">LOGOUT</span>
-            </div>
-            <div ng-if="login == true" class="li_menu_right">
-                <span class="set_center">[[username]]</span>
-            </div>
         </div>
     </div>
-    <div class="content_customize">
-   
-            
+    <div class="content_cart">
+        <div class="purchase">Confirm Purchase</div>
+        <hr>
+        <div class="purchase_left">
+            <div class="purchase_name">Name:
+                <span class="purchase_text">[[firstName]] [[lastName]]</span>
+            </div>
+            <div class="purchase_addr">Address:
+                <span class="purchase_text">[[address]]</span>
+            </div>
+            <div class="purchase_price">Total:
+                <span class="purchase_text">[[totalPrice]] B.</span>
+            </div>
+        </div>
+        <div class="purchase_right">
+            <div class="payment_box">
+                <div class="all_box">
+                    <div class="head_input">Name on Card</div>
+                    <div class="input_data_box">
+                        <input class="input_data" type="text" placeholder="Ex. John doe">
+                    </div>
+                </div>
+                <div class="all_box">
+                    <div class="head_input">Card Number (no spaces or dashes) : </div>
+                    <div class="input_data_box">
+                        <input class="input_data" type="email" placeholder="0123xxxxxxxxxxx">
+                    </div>
+                </div>
+                <div class="all_box">
+                    <div class="each_all_left">
+                        <div class="head_input">Postal Code</div>
+                        <div class="input_data_box">
+                            <input class="input_data" type="text" placeholder="12345">
+                        </div>
+                    </div>
+                    <div class="each_all_right">
+                        <div class="head_input">CVV </div>
+                        <div class="input_data_box">
+                            <input class="input_data" type="text" placeholder="123">
+                        </div>
+                    </div>
+                    <div class="clear_both"></div>
+                </div>
 
+
+                <div class="all_box">
+                    <div class="each_all_left">
+                        <div class="head_input">Expiration </div>
+                        <div class="input_data_box">
+                            <input class="input_data2" type="text" placeholder="MM"> /
+                            <input class="input_data2" type="text" placeholder="YY">
+                        </div>
+                    </div>
+
+                    <div class="clear_both"></div>
+                </div>
+
+
+
+                <div ng-click="checkout()" class="pay_btn">
+                    <span class="set_center">PAY NOW</span>
+                </div>
+            </div>
+        </div>
 
     </div>
 
+    <script src="js/index.js"></script>
     <script src="js/popup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/paymentManager.js"></script>
 </body>
-
-</html>
