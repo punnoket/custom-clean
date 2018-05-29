@@ -14,22 +14,22 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
+
         <div ng-show="!login" class="relative_pop" hidden>
-            <div ng-show="!login" class="popup_box" hidden>
-                <div class="relative">
-                    <img id="popup_pic" src="img/pop.svg">
-                    <div class="pop_mainhead">เข้าสู่ระบบ</div>
-                    <div class="pop_head2">Username</div>
-                    <input class="login_pop" id="email" type="text" ng-model="username">
-                    <div class="pop_head2">Password</div>
-                    <input class="login_pop" id="pass" type="password" ng-model="password">
-                    <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
-                        <span class="set_center">LOGIN</span>
-                    </div>
-                </div>
+            </div>
+    <div ng-show="!login" class="popup_box" hidden>
+        <div class="relative">
+            <img id="popup_pic" src="img/pop.svg">
+            <div class="pop_mainhead">เข้าสู่ระบบ</div>
+            <div class="pop_head2">Username</div>
+            <input class="login_pop" id="email" type="text" ng-model="username">
+            <div class="pop_head2">Password</div>
+            <input class="login_pop" id="pass" type="password" ng-model="password">
+            <div id="login_btn" class="login_btn" ng-click="sendLogin(username, password)">
+                <span class="set_center">LOGIN</span>
             </div>
         </div>
-
+    </div>
 
     <div class="main_header">
         <div class="logo_header">
@@ -154,7 +154,7 @@
         <div class="head_custom">
             <span class="set_center_left">3. CHOOSE MEAT</span>
         </div>
-        <div ng-repeat="i in range(listMeet.length, 3)" class="rice_content2">
+        <div ng-repeat="i in range(listMeet.length, 3)" class="rice_content3">
             <div class="each_rice margin_right">
                 <div class="img_content">
                     <img class="this_img" ng-src="img/[[listMeet[i].image]]">

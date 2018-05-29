@@ -15,9 +15,9 @@
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="isLogin()">
 
-    <div class="relative_pop">
-    </div>
-    <div ng-if="login == false" class="popup_box">
+        <div ng-show="!login" class="relative_pop" hidden>
+            </div>
+    <div ng-show="!login" class="popup_box" hidden>
         <div class="relative">
             <img id="popup_pic" src="img/pop.svg">
             <div class="pop_mainhead">เข้าสู่ระบบ</div>
@@ -108,7 +108,6 @@
     <script src="js/userManager.js"></script>
 </body>
 <script>
-
 </script>
 
 </html>
