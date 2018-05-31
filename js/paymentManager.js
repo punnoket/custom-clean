@@ -33,6 +33,7 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
             })
             .then(function (response) {
                 if (response.data.status == 200) {
+                    alert("Payment Success !! :D")
                     $window.location.href = "./index.html";
                 } else {
                     alert(response.data.message)

@@ -73,7 +73,6 @@
 .img_popup{
     width: 40%;
     height: 100%;
-    background-color: red;
     position: relative;
     box-sizing: border-box;
     float: left;
@@ -82,7 +81,6 @@
     float: left;
     width: 60%;
     height: 100%;
-    background-color: yellow;
     position: relative;
     box-sizing: border-box;
 }
