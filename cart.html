@@ -84,6 +84,9 @@
         .table2 th {
             border-bottom: 1px solid #ddd;
         }
+        .table3 th {
+            border-top: 1px solid #ddd;
+        }
 
         .table1 td,
         .table1 th {
@@ -100,7 +103,6 @@
         .img_menu_cart {
             width: 100px;
             height: 100px;
-            background-color: red;
         }
 
         .total_price {
@@ -108,7 +110,7 @@
         }
 
         .th1 {
-            width: 30%;
+            width: 50%;
         }
 
         .all_total {
@@ -161,7 +163,7 @@
                 <span class="set_center">CUSTOMIZE MENU</span>
             </div>
             <div id="speciel" class="li_menu">
-                <span class="set_center">SPECIEL MENU</span>
+                    <span class="set_center">SPECIAL MENU</span>
             </div>
             <div id="cart" class="li_menu">
                 <span class="set_center">CART</span>
@@ -260,12 +262,17 @@
                 </table>
             </div>
         </div>
-        <tr>
-            <td></td>
-            <td class=""></td>
-            <td class="total_price">Total Price</td>
-            <td>[[totalPriceCustom]] B.</td>
-        </tr>
+        <div class="table_order">
+                <table class="table3">
+                        <tr>
+                            <th class="image_cart"></th>
+                            <th class="th1">Total Price</th>
+                            <th>[[totalPriceCustom]] B.</th>
+    
+                        </tr>
+                    </table>
+        </div>
+
 
         <hr>
 

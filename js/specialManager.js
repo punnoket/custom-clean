@@ -79,7 +79,7 @@ app.controller('myCtrl', function ($scope, $http, $location, $window) {
 
     $scope.dissmissDetail = function (menu) {
         $scope.show = false
-        $window.location.href = "./speciel.html";
+        $window.location.href = "./special.html";
     }
 
     $scope.addToCart = function (menuId, quantity, price) {

@@ -9,7 +9,7 @@ $(".img_cancel").click(function () {
     window.location = 'customize.html'
  });
  $("#speciel").click(function () {
-    window.location = 'speciel.html'
+    window.location = 'special.html'
  });
  $("#register").click(function () {
     window.location = 'register.html'

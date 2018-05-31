@@ -69,6 +69,11 @@ body{
     cursor: pointer;
     font-size: 18px;
 }
+.li_menu2{
+   background-color: black;
+   color: white;
+   width: 30px;;
+}
 .li_menu_right{
     float: right;
     height: 100%;
